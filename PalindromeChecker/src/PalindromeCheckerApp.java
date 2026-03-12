@@ -1,26 +1,20 @@
 import java.util.Scanner;
 
 public class PalindromeCheckerApp {
-
     public static void main(String[] args) {
-
-        Scanner sc = new Scanner(System.in);
-        String input = sc.nextLine();
-
         PalindromeService service = new PalindromeService();
+        String input = "racecar";
+
         boolean result = service.checkPalindrome(input);
 
-        System.out.println("Input : " + input);
-        System.out.println("Is Palindrome? : " + result);
-
-        sc.close();
+        System.out.println("Input: " + input);
+        System.out.println("Is Palindrome? " + result);
     }
 }
 
 class PalindromeService {
 
     public boolean checkPalindrome(String input) {
-
         int start = 0;
         int end = input.length() - 1;
 
@@ -31,7 +25,6 @@ class PalindromeService {
             start++;
             end--;
         }
-
         return true;
     }
 }
