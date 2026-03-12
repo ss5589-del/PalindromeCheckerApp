@@ -13,6 +13,12 @@ public class PalindromeCheckerApp {
 }
 
 class PalindromeService {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Input : ");
+        String input = sc.nextLine();
+
+        String normalized = input.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
 
     public boolean checkPalindrome(String input) {
         int start = 0;
@@ -21,10 +27,18 @@ class PalindromeService {
         while (start < end) {
             if (input.charAt(start) != input.charAt(end)) {
                 return false;
+        for (int i = 0; i < normalized.length() / 2; i++) {
+            if (normalized.charAt(i) != normalized.charAt(normalized.length() - 1 - i)) {
+                isPalindrome = false;
+                break;
             }
             start++;
             end--;
         }
         return true;
+
+        System.out.println("Is Palindrome? : " + isPalindrome);
+
+        sc.close();
     }
-}
+}}
